@@ -1,0 +1,71 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+}
+.section {
+	width: 100%; /*1540px; */
+	height: auto;
+	background:  #eeeeee;
+	padding : 100px 100px;
+}
+
+.join_form{
+	width: 600px;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border : 1px solid gray;
+	border-radius: 7px;
+	background: white;
+} 
+
+input{
+	border : 1px solid #9e9e9e;
+	font-size: 13pt;	
+}
+input[type=text]:placeholder {
+	color: #c5cad3;
+
+}
+input[type=text]:focus,input[type=password]:focus {
+	background-color: #f6f6f6;
+	border: none;
+}
+
+input[type=text],input[type=password] {
+	color: #0d0d0d;
+	display: inline-block;
+	font-size: 14px;
+}
+
+#checkID,wrongID, #wrongPW, #correctPW{
+	font-size: 9pt;
+}
+.join_btn{
+	width: 200px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 70px;
+}
+
+#btn {
+	width: 100%;
+	height: 100%;
+	background-color: #0466e1;
+	border: none;
+	color: white;
+	padding: 15px 50px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 13px;
+	box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+	border-radius: 5px 5px 5px 5px;
+
+  }

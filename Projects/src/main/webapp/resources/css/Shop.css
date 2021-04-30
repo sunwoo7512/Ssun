@@ -1,0 +1,34 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding:0;
+}
+
+.order-process {
+	padding:30px;
+	background:#004393;color:#fff;
+	text-align:center;
+	margin-bottom: 30px;}
+	
+.order-process ul li:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -10px;
+    width: 15px;
+    height: 31px;
+    background: url(/images/contents/order-process-arrow.png) no-repeat;
+    background-size: 100% auto;
+}	
+	
+	
+	
+.order-process ul li {display:inline-block;padding:0 60px;position:relative;opacity:0.3;}
+.order-process ul li.on {opacity:1;}
+.order-process ul li:after {content:"";position:absolute;top:50%;transform:translateY(-50%);right: -10px;width: 15px;height: 31px;background:url("/images/contents/order-process-arrow.png") no-repeat;background-size:100% auto;}
+.order-process ul li .step {display:block;font-size:18px;}
+.order-process ul li p {font-size:25px;font-weight:500;}
+
+
+

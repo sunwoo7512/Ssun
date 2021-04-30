@@ -1,0 +1,96 @@
+@charset "UTF-8";
+body{
+	margin: 0;
+	padding: 0;
+}
+.wrapper{
+	width: 100%;
+	height: 100%;	
+}
+.main_recipe{
+	width: 80%;
+	height: 1300px;
+	margin: 0 auto;
+	background-color: skyblue;
+}
+.main_recipe_header{
+	width: 100%;
+	height: 90px;
+	background-color: pink;
+}
+.header_WriteBtn{
+	width: 100%;
+	height: 30px;
+	background-color: orange;	
+}
+.recipe_btn{
+	float: right;
+}
+.header_item{
+	width: 100%;
+	height: 60px;
+	background-color: purple;
+}
+.header_latest, .division_line, .header_like{
+	margin-right: 15px;
+	float: right;
+}
+.division_line{
+	font-size: 85%;
+}
+.recipe_section{
+	width: 100%;
+	height: 1200px;
+	background-color: red;
+}
+.recipe_cover{
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	height: 300px;
+	float: left;
+	background-color: blue;
+	
+}
+.recipe{
+	width: 95%;
+	height: 95%;
+	background-color: skyblue;
+	float: left;
+}
+.recipe_img{
+	margin:0;
+	padding: 0;
+	width: 100%;
+	height: 70%;
+}
+.recipe_title{
+	width: 100%;
+	height: 10%;
+	background-color: pink;
+}
+.recipe_name_date{
+	width: 100%;
+	height: 10%;
+}
+.recipe_like_hate{
+	width: 100%;
+	height: 10%;	
+}
+.like_icon{
+	width: 50%;
+	height: 10%;
+	background-color: aqua;
+}
+.hate_icon{
+	width: 50%;
+	height: 10%;
+	background-color: gray;
+}
+.font{
+	margin-left: 5px;
+	margin-right: 20px;
+	font-size: 15px;
+	font-weight: bolder;
+}
+

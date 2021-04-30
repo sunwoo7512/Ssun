@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<select id="list" parameterType="Map" resultType="Map">
+		SELECT * FROM b_myRecipe LIMIT #{page }, 10
+	</select>
+	
+	<insert id="write" parameterType="Map">
+		INSERT INTO board (board_file, board_title, board_content, member_no, board_cateNo) 
+		VALUES (#{board_file}, #{board_title}, #{board_content}, 1, 7)
+	</insert>
+	
+	<select id="detail" parameterType="Integer" resultType="BoardDTO">
+	   SELECT * FROM b_myRecipe WHERE board_no=#{no}
+	</select>
+</mapper>

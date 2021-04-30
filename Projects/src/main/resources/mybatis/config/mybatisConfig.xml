@@ -6,6 +6,7 @@
 		<typeAlias type="com.hoyeon.dto.UserDTO" alias="UserDTO" />
 		<typeAlias type="com.hoyeon.dto.BoardDTO" alias="BoardDTO" />
 		<typeAlias type="com.hoyeon.dto.ProductDTO" alias="ProductDTO" />
+		<typeAlias type="com.hoyeon.dto.CartDTO" alias="CartDTO" />
 	</typeAliases>
 </configuration>
 

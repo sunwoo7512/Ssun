@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cart">
+	<select id="selectCartList" parameterType="Integer" resultType="CartDTO">
+		SELECT C.cart_total,
+			   P.product_name,
+			   P.product_price,
+			   P.product_imgName
+		  FROM cart C 
+		  		INNER JOIN product P
+		  		ON C.cart_no = P.product_no
+		 WHERE C.member_no=#{member_no}
+	</select>
+	
+</mapper>

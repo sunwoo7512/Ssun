@@ -6,10 +6,28 @@
 			   P.product_name,
 			   P.product_price,
 			   P.product_imgName
-		  FROM cart C 
+		  FROM cart2 C 
 		  		INNER JOIN product P
 		  		ON C.cart_no = P.product_no
 		 WHERE C.member_no=#{member_no}
 	</select>
 	
+	<insert id="insertCart" parameterType="CartDTO">
+		INSERT INTO cart2 (cart_total, product_no, member_no)
+		values(#{cart_total}, #{product_no}, #{member_no})
+	</insert>
+	
+	<select id="selectCartProductTotal" parameterType="Map" resultType="Integer">
+		SELECT cart_total
+		  FROM cart2
+		 WHERE member_no = #{member_no}
+		   AND product_no = #{product_no}
+	</select>
+	
+	<update id="updateCartProductTotal" parameterType="Map">
+		UPDATE cart2 
+		   SET cart_total = #{increase_total}
+		 WHERE member_no = #{member_no}
+		   AND product_no = #{product_no}   
+	</update>
 </mapper>

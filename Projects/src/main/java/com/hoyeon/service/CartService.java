@@ -17,6 +17,7 @@ public class CartService {
 	
 	CartDAO cartDAO;
 
+	@Autowired
 	public CartService(CartDAO cartDAO) {
 		this.cartDAO = cartDAO; 
 	}
@@ -24,5 +25,29 @@ public class CartService {
 	public List<CartDTO> getCartList(int member_no) {
 		List<CartDTO> cartList = cartDAO.getCartList(member_no);
 		return cartList; 
+	}
+	
+	public void postCart(CartDTO cartDTO) {
+		cartDAO.postCart(cartDTO);
+	}
+	
+//	public void postCart(Map<String, Integer> updateMap) {
+//		cartDAO.postCart(updateMap);
+//	}
+	
+	public void postCart(Map<String, String> updateMap) {
+		cartDAO.postCart(updateMap);
+	}
+	
+//	public int getCartProductTotal(Map<String, Integer> cartMap) {
+//		Integer cart_total = cartDAO.getCartProductTotal(cartMap);
+//		int returnValue = (cart_total==null) ? 0: cart_total.intValue();
+//		return returnValue;
+//	}
+	
+	public int getCartProductTotal(Map<String, String> cartMap) {
+		Integer cart_total = cartDAO.getCartProductTotal(cartMap);
+		int returnValue = (cart_total==null) ? 0: cart_total.intValue();
+		return returnValue;
 	}
 }

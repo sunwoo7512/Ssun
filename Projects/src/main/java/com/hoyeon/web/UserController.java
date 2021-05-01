@@ -57,10 +57,11 @@ public class UserController {
 		ProductDTO pd = productService.detail(no);
 		System.out.println(pd.getProduct_price());
 		System.out.println(pd.getProduct_imgName());
-		Vector<ProductDTO> product = new Vector<ProductDTO>();
-		product.add(pd);
+//		Vector<ProductDTO> product = new Vector<ProductDTO>();
+//		product.add(pd);
 		
-		return new ModelAndView("NewFile", "product", product); 
+//		return new ModelAndView("NewFile", "product", product);
+		return new ModelAndView("NewFile", "pd", pd);
 	}
 	
 	  @RequestMapping(value="/idcheck", produces="text/plain;charset=utf-8")

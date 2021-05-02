@@ -28,8 +28,7 @@ public class CartService {
 	}
 	
 	public ArrayList<HashMap<String, Object>> getCartMap(int member_no){
-		//HashMap<String, Object> cartMap = cartDAO.getCartMap(member_no);
-		
+		// boardService.list 참고했습니다
 		return (ArrayList<HashMap<String, Object>>) cartDAO.getCartMap(member_no);
 		
 	}

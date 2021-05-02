@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hoyeon.dto.CartDTO;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,12 @@ public class CartDAO {
 	
 	public List<CartDTO> getCartList(int member_no){
 		
-		return sqlSession.selectList("cart.selectCartList");
+		return sqlSession.selectList("cart.selectCartList", member_no);
+	}
+		
+	public List<HashMap<String, Object>> getCartMap(int member_no){
+		
+		return sqlSession.selectList("cart.selectCartMap", member_no);
 	}
 	
 	// 신규 상품 장바구니에 등록

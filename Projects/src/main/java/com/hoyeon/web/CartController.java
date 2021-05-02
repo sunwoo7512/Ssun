@@ -1,5 +1,6 @@
 package com.hoyeon.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,11 +8,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hoyeon.dto.CartDTO;
@@ -34,8 +33,15 @@ public class CartController {
 	@GetMapping(value="cart")
 	public ModelAndView getCartList(@RequestParam("id") int id) {
 		ModelAndView mv = new ModelAndView("cart");
+		System.out.println("### id => "+id);
+//		List<CartDTO> cartList = cartService.getCartList(id);
+//		System.out.println("### cartList -> " + cartList.toString());
+//		mv.addObject("cartList", cartList);
 		
-		List<CartDTO> cartList = cartService.getCartList(id);
+		Map<String, Object> cartMap = new HashMap<String, Object>();
+		ArrayList<HashMap<String, Object>> cartList = cartService.getCartMap(id);
+		//cartMap = cartService.getCartMap(id);
+		System.out.println("### cartList -> " + cartList.toString());
 		mv.addObject("cartList", cartList);
 		
 		return mv;
@@ -65,7 +71,7 @@ public class CartController {
 			int cart_total = increase_total; // 증가 요청 값 그대로 전달
 			
 			ProductDTO pd = productService.detail(product_no);
-			CartDTO cartDTO = new CartDTO(cart_total, product_no, member_no, pd.getProduct_name(), pd.getProduct_price(), pd.getProduct_info(), pd.getProduct_imgName());
+			CartDTO cartDTO = new CartDTO(cart_total, product_no, member_no, pd.getProduct_name(), pd.getProduct_price(), pd.getProduct_imgName());
 			cartService.postCart(cartDTO);
 		}
 		return "redirect:NewFile?no="+product_no;

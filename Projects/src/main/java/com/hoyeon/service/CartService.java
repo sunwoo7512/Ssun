@@ -27,6 +27,13 @@ public class CartService {
 		return cartList; 
 	}
 	
+	public ArrayList<HashMap<String, Object>> getCartMap(int member_no){
+		//HashMap<String, Object> cartMap = cartDAO.getCartMap(member_no);
+		
+		return (ArrayList<HashMap<String, Object>>) cartDAO.getCartMap(member_no);
+		
+	}
+	
 	public void postCart(CartDTO cartDTO) {
 		cartDAO.postCart(cartDTO);
 	}

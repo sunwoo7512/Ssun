@@ -10,11 +10,7 @@ public class CartDTO {
 	// PRODUCT table value
 	private String product_name;
 	private int product_price;
-	private String product_info;
 	private String product_imageName;
-	private String product_reg;
-	private String product_regDate;
-	private String product_quantity;
 	
 	public int getCart_no() {
 		return cart_no;
@@ -34,31 +30,42 @@ public class CartDTO {
 	public int getProduct_price() {
 		return product_price;
 	}
-	public String getProduct_info() {
-		return product_info;
-	}
 	public String getProduct_imageName() {
 		return product_imageName;
 	}
-	public String getProduct_reg() {
-		return product_reg;
+	public void setCart_no(int cart_no) {
+		this.cart_no = cart_no;
 	}
-	public String getProduct_regDate() {
-		return product_regDate;
+	public void setCart_total(int cart_total) {
+		this.cart_total = cart_total;
 	}
-	public String getProduct_quantity() {
-		return product_quantity;
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
 	}
-	public CartDTO(int cart_total, int product_no, int member_no, String product_name, int product_price,
-			String product_info, String product_imageName) {
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+	public void setProduct_imageName(String product_imageName) {
+		this.product_imageName = product_imageName;
+	}
+	public CartDTO(int cart_total, int product_no, int member_no, String product_name, int product_price, String product_imageName) {
 		this.cart_total = cart_total;
 		this.product_no = product_no;
 		this.member_no = member_no;
 		this.product_name = product_name;
 		this.product_price = product_price;
-		this.product_info = product_info;
 		this.product_imageName = product_imageName;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "CartDTO [cart_no=" + cart_no + ", cart_total=" + cart_total + ", product_no=" + product_no
+				+ ", member_no=" + member_no + ", product_name=" + product_name + ", product_price=" + product_price
+				+ ", product_imageName=" + product_imageName + "]";
+	}
 }

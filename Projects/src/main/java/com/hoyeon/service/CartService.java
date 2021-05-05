@@ -56,4 +56,8 @@ public class CartService {
 		int returnValue = (cart_total==null) ? 0: cart_total.intValue();
 		return returnValue;
 	}
+	
+	public void deleteSelectedItem(Map<String, String> selectedItems) {
+		cartDAO.deleteSelectedItem(selectedItems);
+	}
 }

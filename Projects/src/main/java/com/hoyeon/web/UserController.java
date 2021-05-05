@@ -32,7 +32,17 @@ public class UserController {
 	
 	@GetMapping(value = "/")
 	public String index() {
-		return "redirect:myRecipe";
+		// localhost/value가 입력됬을 때 이 함수가 실행되게함
+		// 이 때 value값이 없으므로 이 함수가 실행되는 url은
+		// localhost/임
+		
+		
+		return "redirect:product";
+		// 이 때 return-> 결과로 무엇을 주겠다 라는 곳에서
+		// redirect:product 라고 작성하셨음
+		// 기존엔 redirect:myRecipe였음
+		// redirect 뜻 -> 다른 페이지로 연결함
+		// 결국 localhost 만입력해도 localhost/product로 강제 이동하게하는 함수를 완성함
 	}
 	@GetMapping(value = "/login")// 로그인 화면 , 데이터베이스 연결안되서 안나오는건지
 	public String login() {

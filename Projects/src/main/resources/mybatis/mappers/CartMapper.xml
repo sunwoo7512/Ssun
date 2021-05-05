@@ -29,7 +29,7 @@
 	
 	<update id="updateCartProductTotal" parameterType="Map">
 		UPDATE cart2 
-		   SET cart_total = #{increase_total}
+		   SET cart_total = #{amount}
 		 WHERE member_no = #{member_no}
 		   AND product_no = #{product_no}   
 	</update>
@@ -47,4 +47,10 @@
 		  		ON C.cart_no = P.product_no
 		 WHERE C.member_no=#{member_no}
 	</select>
+	
+	<delete id="deleteSelectedItem" parameterType="Map" >
+		DELETE FROM cart2
+		 WHERE product_no = #{product_no}
+		   AND member_no = #{member_no}
+	</delete>
 </mapper>

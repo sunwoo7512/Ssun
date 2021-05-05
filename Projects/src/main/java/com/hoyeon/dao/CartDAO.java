@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hoyeon.dto.CartDTO;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +59,10 @@ public class CartDAO {
 	
 	public Integer getCartProductTotal(Map<String, String> cartMap ) {
 		return sqlSession.selectOne("cart.selectCartProductTotal", cartMap);
+	}
+	
+	public void deleteSelectedItem(Map<String, String> selectedItems) {
+		sqlSession.delete("cart.deleteSelectedItem", selectedItems);
 	}
 	
 }

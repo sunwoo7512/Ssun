@@ -67,21 +67,33 @@
 			
 			<div class="btns">
 				<a href="javascript:callAddCart();" class="btn1">장바구니</a> 			
-				<a href="#a" class="btn2">구매하기</a>
+				<a href="javascript:blockFloat();" class="btn2">구매하기</a>
 			</div>
 		</div>
 		<form id="addCart" action="addCart" method="get">
 			<input type="hidden" name="product_no" value="${pd.product_no}">
 			<input type="hidden" name="member_no" value="123">
-			<input type="hidden" name="increase_total" value="0">
+			<input type="hidden" name="amount" value="0">
 		</form>
+		
+		<div id="float" style="display:none; position:absolute; left:600px; top:600px; border:1px solid; z-index:10;">
+			<div><a href="/cart?id=123">장바구니</a></div>
+			<div><a href="javascript:closeFloat();">계속쇼핑</a></div>
+		</div>
 		
 		<script>
 			function callAddCart(){
 				let form = document.getElementById('addCart');
-				form.increase_total.value = document.getElementById('total').value;
+				form.amount.value = document.getElementById('total').value;
 				form.submit();
-				alert('success');
+			}
+			function blockFloat(){
+				let target = document.getElementById('float');
+				target.style.display='block';
+			}
+			function closeFloat(){
+				let target = document.getElementById('float');
+				target.style.display='none';
 			}
 		</script>
 </body>

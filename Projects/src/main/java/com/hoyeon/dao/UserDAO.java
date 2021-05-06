@@ -21,8 +21,12 @@ public class UserDAO {
 		return sqlSession.selectOne("user.idcheck", id);
 	}
 
-	public int idcheck(UserDTO dto) {
-		return sqlSession.selectOne("user.idcheck",dto);
+//	public int idcheck(UserDTO dto) {
+//		return sqlSession.selectOne("user.idcheck",dto);
+//	}
+
+	public UserDTO login(UserDTO dto) {
+		return sqlSession.selectOne("user.login",dto);
 	}
 	
 }

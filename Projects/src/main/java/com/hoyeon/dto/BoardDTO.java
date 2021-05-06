@@ -1,11 +1,9 @@
 package com.hoyeon.dto;
 
-import java.sql.Date;
-
 public class BoardDTO {
-		private int board_no, board_cateNo, member_no, board_view, board_like, board_hate;
+		private int board_no, board_cateNo, member_no, board_views, board_like_cnt, board_hate_cnt;
 		private String member_name, board_title, board_content, board_file;
-		private Date board_date;
+		private String board_date;
 		public int getBoard_no() {
 			return board_no;
 		}
@@ -24,23 +22,23 @@ public class BoardDTO {
 		public void setMember_no(int member_no) {
 			this.member_no = member_no;
 		}
-		public int getBoard_view() {
-			return board_view;
+		public int getBoard_views() {
+			return board_views;
 		}
-		public void setBoard_view(int board_view) {
-			this.board_view = board_view;
+		public void setBoard_views(int board_views) {
+			this.board_views = board_views;
 		}
-		public int getBoard_like() {
-			return board_like;
+		public int getBoard_like_cnt() {
+			return board_like_cnt;
 		}
-		public void setBoard_like(int board_like) {
-			this.board_like = board_like;
+		public void setBoard_like_cnt(int board_like_cnt) {
+			this.board_like_cnt = board_like_cnt;
 		}
-		public int getBoard_hate() {
-			return board_hate;
+		public int getBoard_hate_cnt() {
+			return board_hate_cnt;
 		}
-		public void setBoard_hate(int board_hate) {
-			this.board_hate = board_hate;
+		public void setBoard_hate_cnt(int board_hate_cnt) {
+			this.board_hate_cnt = board_hate_cnt;
 		}
 		public String getBoard_title() {
 			return board_title;
@@ -60,10 +58,10 @@ public class BoardDTO {
 		public void setBoard_file(String board_file) {
 			this.board_file = board_file;
 		}
-		public Date getBoard_date() {
+		public String getBoard_date() {
 			return board_date;
 		}
-		public void setBoard_date(Date board_date) {
+		public void setBoard_date(String board_date) {
 			this.board_date = board_date;
 		}
 		public String getMember_name() {

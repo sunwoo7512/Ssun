@@ -1,0 +1,160 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap')
+	;
+
+.loginBox {
+   position: fixed;
+   width: 380px;;
+   left: 50%;
+   margin-left: -190px;
+   height: 550px;
+   top: 50%;
+   margin-top: -275px;
+   overflow: auto;
+   background-color: #F0ECEC;
+   padding: 1em;
+   box-sizing: border-box;
+   z-index: 2;
+   border-radius: 10px 10px 10px 10px;
+   overflow-y: hidden;
+   overflow-x: hidden;
+}
+
+#mask {
+	position: absolute;
+	z-index: 1;
+	background-color: #000;
+	display: none;
+	left: 0;
+	top: 0;
+}
+
+.closeBox {
+	width: 10%;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 3;
+}
+
+.logo {
+	width: 90%;
+	margin-left: 30%;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	padding-top: 5%;
+}
+
+.login_form {
+	width: 70%;
+	height: 90%;
+	margin: 0 auto;
+	margin-left: 55px;
+	border: none;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.login_info {
+	width: 90%;
+	height: 65%;
+	border-bottom: 1px solid #c8c9ca; 
+	margin-right : 60px; 
+	margin-bottom: 50px;
+	padding-top: 20px;
+	margin-right: 60px;
+}
+
+.formFooter {
+	width: 90%;
+	height: 30%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#lid, #lpw {
+	background-color: #eeeeee;
+	color: #0d0d0d;
+	width: 90%;
+	height: 9%;
+	padding: 10px 20px;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin-bottom: 10px;
+	border: 2px solid #f6f6f6;
+	border-radius: 5px 5px 5px 5px;
+}
+
+#lid:placeholder {
+	color: #c5cad3;
+}
+
+#join_btn:hover {
+	background-color: #0359c2;
+	font-weight: bold;
+}
+
+#join_btn:active {
+	transform: scale(0.9);
+}
+
+#join_btn {
+	width: 250px;
+	background-color: #0466e1;
+	border: none;
+	color: white;
+	padding: 10px 40px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 13pt;
+	box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+	border-radius: 5px 5px 5px 5px;
+	margin-top: 30px;
+	cursor: hand;
+}
+
+
+#lid:focus, #lpw:focus {
+	background-color: #fff;
+	border-bottom: 2px solid #5fbae9;
+}
+
+.underlineHover {
+	text-decoration: none;
+	color: blue;
+	font-weight: bolder;
+}
+
+.underlineHover:after {
+	display: block;
+	left: 0;
+	bottom: -10px;
+	width: 0;
+	height: 2px;
+	background-color: #56baed;
+	content: "";
+	transition: width 0.2s;
+}
+
+.underlineHover:hover {
+	color: black;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+.underlineHover:hover:after {
+	width: 100%;
+}
+
+h2{
+	text-align: center;
+	margin-top: 5px;
+	margin: 0;
+}

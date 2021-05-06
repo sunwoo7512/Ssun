@@ -15,15 +15,20 @@ public class UserService {
 	private UserDAO userDAO;
 
 	public void join(UserDTO dto) {
-		userDAO.join(dto);
-	
+		userDAO.join(dto);	
 	}
 
 	public int idcheck(String id) {
 		return userDAO.idcheck(id);
 	}
 
-	public int checkid(UserDTO dto) {
-		return userDAO.idcheck(dto);
+//	public int checkid(UserDTO dto) {
+//		return userDAO.idcheck(dto);
+//	}
+
+	public UserDTO login(UserDTO dto) {
+		return userDAO.login(dto);
 	}
+
+	
 }

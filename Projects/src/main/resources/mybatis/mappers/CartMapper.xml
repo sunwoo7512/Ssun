@@ -1,56 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cart">
-	<select id="selectCartList" parameterType="Integer" resultType="CartDTO">
-		SELECT C.cart_no,
-			   C.cart_total,
-			   C.product_no,
-			   C.member_no,
-			   P.product_name,
-			   P.product_price,
-			   P.product_imgName
-		  FROM cart2 C 
-		  		INNER JOIN product P
-		  		ON C.cart_no = P.product_no
-		 WHERE C.member_no=#{member_no}
-	</select>
-	
-	<insert id="insertCart" parameterType="CartDTO">
-		INSERT INTO cart2 (cart_total, product_no, member_no)
-		values(#{cart_total}, #{product_no}, #{member_no})
-	</insert>
-	
-	<select id="selectCartProductTotal" parameterType="Map" resultType="Integer">
-		SELECT cart_total
-		  FROM cart2
-		 WHERE member_no = #{member_no}
-		   AND product_no = #{product_no}
-	</select>
-	
-	<update id="updateCartProductTotal" parameterType="Map">
-		UPDATE cart2 
-		   SET cart_total = #{amount}
-		 WHERE member_no = #{member_no}
-		   AND product_no = #{product_no}   
-	</update>
-	
-	<select id="selectCartMap" parameterType="Integer" resultType="Map">
-		SELECT C.cart_no,
-			   C.cart_total,
-			   C.product_no,
-			   C.member_no,
-			   P.product_name,
-			   P.product_price,
-			   P.product_imgName
-		  FROM cart2 C 
-		  		INNER JOIN product P
-		  		ON C.cart_no = P.product_no
-		 WHERE C.member_no=#{member_no}
-	</select>
-	
-	<delete id="deleteSelectedItem" parameterType="Map" >
-		DELETE FROM cart2
-		 WHERE product_no = #{product_no}
-		   AND member_no = #{member_no}
-	</delete>
+   <select id="selectCartList" parameterType="Integer" resultType="Map">
+      SELECT C.cart_no,
+            C.cart_total,
+            C.product_no,
+            C.member_no,
+            P.product_name,
+            P.product_price,
+            P.product_imgName
+        FROM cart2 C 
+              INNER JOIN product P
+              ON C.product_no = P.product_no
+       WHERE C.member_no= #{member_no}
+   </select>
+   
+   <insert id="insertCart" parameterType="CartDTO">
+      INSERT INTO cart2 (cart_total, product_no, member_no)
+      values(#{cart_total}, #{product_no}, #{member_no})
+   </insert>
+   
+   <select id="selectCartProductTotal" parameterType="Map" resultType="Integer">
+      SELECT cart_total
+        FROM cart2
+       WHERE member_no = #{member_no}
+         AND product_no = #{product_no}
+   </select>
+   
+   <update id="updateCartProductTotal" parameterType="Map">
+      UPDATE cart2 
+         SET cart_total = #{amount}
+       WHERE member_no = #{member_no}
+         AND product_no = #{product_no}   
+   </update>
+   
+   <select id="selectCartMap" parameterType="Integer" resultType="Map">
+      SELECT C.cart_no,
+            C.cart_total,
+            C.product_no,
+            C.member_no,
+            P.product_name,
+            P.product_price,
+            P.product_imgName
+        FROM cart2 C 
+              INNER JOIN product P
+              ON C.product_no = P.product_no
+       WHERE C.member_no=#{member_no}
+   </select>
+   
+   <delete id="deleteSelectedItem" parameterType="Map" >
+      DELETE FROM cart2
+       WHERE product_no = #{product_no}
+         AND member_no = #{member_no}
+   </delete>
+   
+   <delete id="deleteAllItems" parameterType="Map" >
+      DELETE FROM cart2
+       WHERE member_no = #{member_no}
+   </delete>
 </mapper>

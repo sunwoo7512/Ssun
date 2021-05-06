@@ -1,5 +1,6 @@
 package com.hoyeon.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,13 +16,13 @@ public class ProductDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-
 	public List<HashMap<String, Object>> list(Map<String, Object> map) {
-		return sqlSession.selectList("product.list",map);
+		
+		return sqlSession.selectList("product.list", map);
 	}
 
-	public ProductDTO detail(int no) {
-		return sqlSession.selectOne("product.detail",no);
+	public ProductDTO p_detail(int pno) {
+		return sqlSession.selectOne("product.p_detail",pno);
 	}
 	
 	

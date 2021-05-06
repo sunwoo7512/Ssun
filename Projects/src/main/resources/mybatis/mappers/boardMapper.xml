@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-	<select id="list" parameterType="Map" resultType="Map">
-		SELECT * FROM b_myRecipe LIMIT #{page }, 10
-	</select>
+	 <select id="list" parameterType="Map" resultType="Map">
+      SELECT * ,
+      (
+      SELECT COUNT(*) FROM b_myRecipe 
+       <if test="key == 'title'"> WHERE board_title like concat('%' , #{search}, '%')</if>
+      <if test="key == 'content'"> WHERE board_content like concat('%' , #{search}, '%')</if>
+      <if test="key == 'writer'"> WHERE member_name like concat('%' , #{search}, '%')</if>
+      ) as count
+      FROM 
+      b_myRecipe 
+      <if test="key =='title'"> WHERE board_title like concat('%' , #{search}, '%')</if>
+      <if test="key == 'content'"> WHERE board_content like concat('%' , #{search}, '%')</if>
+      <if test="key == 'writer'"> WHERE member_name like concat('%' , #{search}, '%')</if>
+      LIMIT #{page }, 15
+   </select>
 	
-	<insert id="write" parameterType="Map">
-		INSERT INTO board (board_file, board_title, board_content, member_no, board_cateNo) 
-		VALUES (#{board_file}, #{board_title}, #{board_content}, 1, 7)
+	<insert id="write" parameterType="BoardDTO">
+		INSERT INTO board (board_cateNo, board_title, board_content, member_no <if test="board_file != null">, board_file</if>) 
+		VALUES (7, #{board_title}, #{board_content}, #{member_no} <if test="board_file != null">, #{board_file}</if>)
 	</insert>
 	
 	<select id="detail" parameterType="Integer" resultType="BoardDTO">
-	   SELECT * FROM b_myRecipe WHERE board_no=#{no}
+	   SELECT * FROM b_myRecipe WHERE board_no=#{bno}
 	</select>
+	
+	<select id="update" parameterType="BoardDTO" resultType="BoardDTO">
+		SELECT * FROM b_myRecipe
+		WHERE board_no=#{board_no} AND member_no=#{member_no}
+	</select>
+	
+	<update id="update2" parameterType="Map">
+		UPDATE b_myRecipe SET board_title=#{title}, board_content=#{content}, board_file=#{file} 
+		WHERE board_no=#{bno} AND member_no=#{no}
+	</update>
+	
+	<delete id="delete" parameterType="Map">
+		DELETE FROM board WHERE board_no=#{bno} AND member_no=#{no}
+	</delete>
+	
+	<select id="newWrite" parameterType="Map" resultType="Map">
+		SELECT 
+		*,
+		(SELECT COUNT(*) 
+		from b_myRecipe) as COUNT 
+		FROM b_myRecipe ORDER BY board_no DESC LIMIT #{page}, 15
+	</select>
+	
 </mapper>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.productView_top .txtWrap .prdName {
+    display: block;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+    padding: 20px 0;
+    line-height: 1.4;
+    min-height: 110px;
+}
+
+.productView_top .txtWrap .prdInfo > ul {
+    padding: 10px 20px;
+    border-top: 1px solid #ccc;
+}

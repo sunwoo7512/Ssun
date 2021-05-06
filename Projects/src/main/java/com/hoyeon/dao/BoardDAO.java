@@ -1,5 +1,6 @@
 package com.hoyeon.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,14 +22,50 @@ public class BoardDAO {
 	}
 
 
-	public void write(Map<String, Object> map) {
-		sqlSession.insert("board.write", map);
+	public void write(BoardDTO dto) {
+		sqlSession.insert("board.write", dto);
 	}
 
 
-	public BoardDTO detail(int no) {
-		return sqlSession.selectOne("board.detail",no);
+	public BoardDTO detail(int bno) {
+		return sqlSession.selectOne("board.detail", bno);
 	}
 	
+	public BoardDTO detail(BoardDTO dto) {
+		return sqlSession.selectOne("board.update", dto);
+	}
+
+
+	public void update2(Map<String, Object> map) {
+		sqlSession.update("board.update2",map);
+		
+	}
+
+
+	public void delete(Map<String, Object> map) {
+		sqlSession.delete("board.delete", map);
+	}
+
+
+	public void commentInsert(Map<String, Object> map) {
+		sqlSession.insert("comment.commentInsert", map);
+		
+	}
+
+
+	public List<HashMap<String, Object>> commentList(int bno) {
+	
+		return sqlSession.selectList("comment.commentList",bno);
+	}
+
+
+	public List<HashMap<String, Object>> newWrite(Map<String, Object> map) {
+		return sqlSession.selectList("board.newWrite", map);
+	}
+
+
+	public List<HashMap<String, Object>> popularWrite(Map<String, Object> map) {
+		return sqlSession.selectList("board.popularWrite",map);
+	}
 	
 }

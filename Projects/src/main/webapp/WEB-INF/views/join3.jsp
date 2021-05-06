@@ -9,27 +9,30 @@
 <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
-<div class="wrapper">
-	<div class="header">
-		<h1>header</h1>
+
+	<div id="banner">
+	<%@include file="./banner.jsp"%>
 	</div>
+	<div class="wrapper">
 	<div class="section">
 		<div class="maincontent">
-			<div class="content1">수르띠에 회원가입이 완료되었습니다</div>
-			<div class="content2">수르띠에 회원으로 가입해주셔서 감사합니다</div>
-			<div class="content3">로그인하셔서 수르띠에를 마음껏 즐겨주세요</div>
+			<div class="content1"><h3>수르띠에 회원가입이 완료되었습니다</h3></div>
+			<br>
+			<br>
+			<br>
+			<div class="content2"><b>수르띠에 회원으로 가입해주셔서 감사합니다</b></div>
 			
 			<div class="login_main_btn">
-				<div class="login_btn"><button onclick="location.href='./main'">메인으로</button></div>
-				<div class="main_btn"><button onclick="location.href='./login.jsp'">로그인</button></div>
+				<div class="main_btn"><button onclick="location.href='./'">MAIN</button></div>
 			</div>
 			
 		</div>
 	</div>
-	<div class="footer">
-		<h1>footer</h1>
 	</div>
-</div>
+	<div class="footer">
+         <%@include file="./footer.jsp"%>
+      </div>
+
 
 </body>
 </html>

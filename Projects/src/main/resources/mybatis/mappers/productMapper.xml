@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product">
-	<select id="list" parameterType="Map" resultType="Map">
-		SELECT * FROM p_products LIMIT #{page }, 10
+	 <select id="list" parameterType="Map" resultType="Map">
+	  SELECT * ,
+      (
+      SELECT COUNT(*) FROM product 
+     <if test="product_name!=null">WHERE product_name like concat('%' , #{search}, '%')</if>
+      ) as count
+      FROM 
+      product
+      <if test="product_name!=null">WHERE product_name like concat('%' , #{search}, '%')</if>
+      LIMIT #{page }, 15 
+    
+   </select>
+	
+	<select id="p_detail" parameterType="Integer" resultType="ProductDTO">
+	   SELECT * FROM product WHERE product_no=#{pno}
 	</select>
 	
-	<select id="detail" parameterType="Integer" resultType="ProductDTO">
-	   SELECT * FROM p_products WHERE product_no=#{no}
-	</select>
+	
 </mapper>

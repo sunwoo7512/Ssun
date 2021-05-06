@@ -55,7 +55,7 @@ label {
   background: transparent; 
   margin-top:5px;
   margin-bottom:5px;
-  border:2px solid #8BC34A;
+  border:2px solid #00CED1;
   border-radius:13px;
   outline: none;
 }
@@ -65,7 +65,7 @@ label {
   background: transparent; 
   margin-top:5px;
   margin-bottom:5px;
-  border:2px solid #8BC34A;
+  border:2px solid #00CED1;
   border-radius:13px;
   outline: none;
   cursor: pointer;
@@ -85,7 +85,7 @@ label {
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
-  background: #8BC34A;
+  background: #00CED1;
   transition: ease .6s;
 }
 
@@ -115,7 +115,7 @@ button {
 }
 
 button:hover {
-  background: #8BC34A;
+  background: #B0C4DE;
   color: #ffffff;
 }
 .join_btn{

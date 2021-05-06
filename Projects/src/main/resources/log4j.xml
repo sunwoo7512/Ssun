@@ -10,6 +10,23 @@
 		</layout>
 	</appender>
 	
+	<appender name="sqlLogger" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p:%m%n"/>
+		</layout>
+	</appender>
+	
+		
+	<logger name="jdbc.sqlonly" additivity="false">
+		<level value="info"></level>
+		<appender-ref ref="sqlLogger"></appender-ref>
+	</logger>
+	
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level name="info"></level>
+		<appender-ref ref="sqlLogger"></appender-ref>
+	</logger>
+	
 	<!-- Application Loggers -->
 	<logger name="com.hoyeon.web">
 		<level value="info" />

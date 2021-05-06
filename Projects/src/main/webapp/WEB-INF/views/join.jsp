@@ -11,6 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>회원가입1</title>
 <link rel="stylesheet" href="./css/join.css">
+<link rel="stylesheet" href="./css/common.css">
 <script
 	src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <link rel="stylesheet" href="./css/join.css">
@@ -169,15 +170,16 @@
 </head>
 
 <body>
-	<div>
-		<h1>header</h1>
+	<div id="banner">
+	<%@include file="./banner.jsp"%>
 	</div>
+	
 	<div class="section">
 		<form action="./join" method="post" onsubmit="return join()">
 		<div class="join_form">
 			
 			<input type="text" class="input" class="input" id="id"
-				name="user_id" placeholder="아이디">
+				name="member_id" placeholder="아이디">
 			<div class="line-box">
 				<div class="line"></div>
 			</div> 
@@ -192,12 +194,12 @@
 			<div id="correctID" style="display: none;"></div>
 			
 			
-			<input type="password" class="input" id="pw" name="user_pw" placeholder="비밀번호" onchange="checkpassword1()">
+			<input type="password" class="input" id="pw" name="member_pw" placeholder="비밀번호" onchange="checkpassword1()">
 			<div class="line-box">
 				<div class="line"></div>
 			</div>
 			
-			<input type="password" class="input" id="pw_check" name="user_pwcheck" placeholder="비밀번호 확인" onchange="checkpassword2()">
+			<input type="password" class="input" id="pw_check" placeholder="비밀번호 확인" onchange="checkpassword2()">
 			<div class="line-box">
 				<div class="line"></div>
 			</div>
@@ -207,28 +209,32 @@
 			<div id="correctPW" style="display: none;">비밀번호가 일치합니다.</div>
 			
 			
-			<input type="text" class="input" id="user_name" name="user_name" placeholder="이름">
+			<input type="text" class="input" id="user_name" name="member_name" placeholder="이름">
 			<div class="line-box">
 				<div class="line"></div>
 			</div>
 			
-			<input type="text" class="input" id="user_email" name="user_email" placeholder="이메일">
+			<input type="text" class="input" id="user_email" name="member_email" placeholder="이메일">
 			<div class="line-box">
 				<div class="line"></div>
 			</div>
-			<input type="text" class="input" id="sample3_postcode" name="user_addr1" placeholder="우편번호"> 
+			<input type="text" class="input" id="user_tel" name="member_tel" placeholder="전화번호" maxlength="11">
 			<div class="line-box">
 				<div class="line"></div>
 			</div>
-					<input type="text" class="input" id="sample3_address" placeholder="주소"><br>
+			<input type="text" class="input" id="sample3_postcode" name="member_addr1" placeholder="우편번호"> 
+			<div class="line-box">
+				<div class="line"></div>
+			</div>
+					<input type="text" class="input" id="sample3_address" name="member_addr2" placeholder="주소"><br>
 					<div class="line-box">
 				<div class="line"></div>
 			</div>
-					<input type="text" class="input" id="sample3_detailAddress" name="user_addr2" placeholder="상세주소"><br> 
+					<input type="text" class="input" id="sample3_detailAddress" name="member_addr3" placeholder="상세주소"><br> 
 					<div class="line-box">
 				<div class="line"></div>
 			</div>
-					<input type="text" class="input" id="sample3_extraAddress" name="user_addr3" placeholder="참고항목">
+					<input type="text" class="input" id="sample3_extraAddress" name="member_addr4" placeholder="참고항목">
 					<div class="line-box">
 						<div class="line"></div>
 					</div>
@@ -339,10 +345,13 @@
 		<div class="line-box">
 				<div class="line"></div>
 			</div>
-			  <button type="submit" class="join_btn">submit</button>
+			  <button type="submit" class="join_btn">가입하기</button>
 		</div>
 		</form>
 	</div>
+	<div class="footer">
+			<%@include file="./footer.jsp"%>
+		</div>
 
 
 </body>

@@ -12,15 +12,12 @@ import com.hoyeon.dto.ProductDTO;
 @Service
 public class ProductService {
 	@Autowired
-	private ProductDAO productDAO;
-
-
+	private ProductDAO productDAO; 
 	public ArrayList<HashMap<String, Object>> list(Map<String, Object> map) {
-		return (ArrayList<HashMap<String, Object>>) productDAO.list(map);
+		return (ArrayList<HashMap<String, Object>>)productDAO.list(map);
 	}
-
-	public ProductDTO detail(int no) {
-		return productDAO.detail(no);
+	public ProductDTO p_detail(int pno) {
+		return productDAO.p_detail(pno);
 	}
 
 }
